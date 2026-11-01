@@ -15,35 +15,40 @@ subtitle: "Joyce · 公共卫生与数据分析"
 
 ## 关于我 {#about}
 
-我叫 **Qiaoyi Xu（Joyce）**，家乡是北京。原个人主页介绍了我在公共卫生、流行病学、应用生物统计及数据科学方面的学习，以及医疗健康相关实习经历。我的职业目标是将所学用于健康领域，帮助人们改善健康。
+我叫 **Qiaoyi Xu（Joyce）**，家乡是北京。目前在北京大学攻读流行病学与卫生统计学博士学位，此前在哥伦比亚大学和马萨诸塞大学阿默斯特分校学习公共卫生、流行病学与数学。我的职业目标是将所学用于健康领域，帮助人们改善健康。
 
-本页根据原站公开资料整理。教育及实习信息为历史记录；原站所述“当前在读”状态与预计毕业时间不作为当前状态声明。
+[查看完整简历](myresume.html) · [下载简历 PDF](myresume.pdf)
 
 ## 教育背景 {#education}
 
-**哥伦比亚大学 · Mailman School of Public Health**  
-2021 年 9 月入学；原站预计毕业时间为 2023 年 5 月。原站记录为流行病学公共卫生硕士（MPH）学习经历，并提及应用生物统计及数据科学方向学习；实际毕业状态及证书正式名称待本人更新。
+**北京大学 · Beijing, China**  
+2026 年 9 月至预计 2030 年 7 月，Doctor of Philosophy in Epidemiology and Biostatistics。
 
-**马萨诸塞大学阿默斯特分校**  
-2018 年 9 月至 2021 年 5 月，公共卫生科学与数学双专业理学学士（原简历记录）。
+**哥伦比亚大学 · New York, NY**  
+2021 年 9 月至 2023 年 5 月，Master of Public Health in Epidemiolog，Certificate in Applied Biostatistics；GPA：3.93。
 
-## 实习经历 {#experience}
+**马萨诸塞大学阿默斯特分校 · Amherst, MA**  
+2018 年 9 月至 2021 年 5 月，Bachelor of Science in Public Health Sciences and Mathematics。  
+双专业；GPA：3.8。
 
+## 工作与实习经历 {#experience}
+
+- **Pharmaron Clinical · Biostatistician**（2023 年 7 月至 2026 年 8 月）：参与 I/II 期临床试验、生物等效性研究、研究者发起试验及 FDA IND 申请支持分析；编写 SAP、TLF 模板等统计文件，审核研究方案与相关交付文件。
 - **Pfizer · 流行病学研究助理**（2022 年 6–8 月，纽约）：支持莱姆病疫苗相关流行病学研究，开展加拿大蜱监测系统文献综述，使用 SAS 分析数据并汇报结果。
 - **Frost & Sullivan · 咨询分析实习生**（2021 年 12 月至 2022 年 2 月，上海）：参与资料收集、市场分析展示及专家访谈纪要整理。
-- **National Center for Medical Service Administration · 数据分析实习**（2020 年 7–9 月，北京）：收集 20 家医院或卫生中心的核酸检测数据，整理工作动态、分析数据并撰写日报。机构中文正式名称可由本人进一步核定。
-- **中国疾病预防控制中心 · 数据分析与健康传播实习**（2019 年 6–8 月，北京）：收集和分析环境健康相关数据，参与面向儿童及家长的环境健康科普活动。
+- **National Center for Medical Service Administration · 数据分析实习**（2020 年 7–9 月，北京）：收集核酸检测数据、开展分析并撰写日报。
+- **中国疾病预防控制中心 · 数据分析与健康传播实习**（2019 年 6–8 月，北京）：收集和分析环境健康相关数据，参与环境健康科普活动。
 
 ## 数据分析作品 {#projects}
 
 **纽约州 NOAA 气象数据探索**  
-原站课程作品使用 R、Plotly 和 flexdashboard，展示散点图、柱状图与箱线图。它体现了从数据整理到交互式可视化的学习实践。
+该作品使用 R、Plotly 和 flexdashboard，展示散点图、柱状图与箱线图。它体现了从数据整理到交互式可视化的分析实践。
 
 [查看原站交互图表](https://qiaoyixu.github.io/plotly.html) · [查看原站仪表板](https://qiaoyixu.github.io/dashboard.html) · [数据集说明](https://p8105.com/dataset_noaa.html)
 
 ## 技能与兴趣 {#skills}
 
-**分析工具：** R、SAS、MySQL、Excel（来自原简历技能列表）。  
+**分析工具：** R、SAS、MySQL、Excel。  
 **语言：** 中文、英文。  
 **个人兴趣：** 舞蹈、冲浪、百老汇音乐剧；我的猫叫 Erer。
 
@@ -51,4 +56,6 @@ subtitle: "Joyce · 公共卫生与数据分析"
 
 [GitHub](https://github.com/joycexu2000-web) · [LinkedIn](https://www.linkedin.com/in/qiaoyi-xu-99b8091b9/) · [原个人主页](https://qiaoyixu.github.io/)
 
-资料来源：[原主页源码](https://github.com/qiaoyixu/qiaoyixu.github.io/blob/main/index.Rmd)与[原简历源码](https://github.com/qiaoyixu/qiaoyixu.github.io/blob/main/myresume.Rmd)，整理日期：2026 年 11 月 1 日。原站邮箱与电话未纳入本课程版；可按本人需要补充有效联系方式。
+**Phone number：** +86 15711312382  
+**Email：** [qiaoyixu2000@gmail.com](mailto:qiaoyixu2000@gmail.com)  
+**Address：** Beijing, China
