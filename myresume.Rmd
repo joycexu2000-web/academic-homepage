@@ -14,7 +14,7 @@ output:
 
 *Phone number*: +86 15711312382 
 
-*Email*: qiaoyixu2000@gmail.com 
+*Email*: [qiaoyixu2000@gmail.com](mailto:qiaoyixu2000@gmail.com) 
 
 *Address*: Beijing, China
 
