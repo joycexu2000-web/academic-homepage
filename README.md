@@ -14,7 +14,9 @@
 
 ## 推荐部署：独立课程仓库
 
-推荐仓库名 `academic-homepage`，上线后的预期网址为：
+已发布仓库： https://github.com/joycexu2000-web/academic-homepage
+
+公开主页：
 https://joycexu2000-web.github.io/academic-homepage/
 
 1. 登录 GitHub 的 joycexu2000-web 账户，创建名为 `academic-homepage` 的公开仓库。
@@ -84,6 +86,6 @@ Quarto 文档：https://quarto.org/docs/output-formats/pdf-basics
 - [x] 同一份 QMD 支持 HTML 与 LaTeX/PDF。
 - [x] 已构建网页、PDF 和 tex，交付配套静态资源。
 - [x] 已读取原主页与原简历，无虚构毕业或论文成果。
-- [ ] 上传公开仓库并启用 GitHub Pages。
-- [ ] 在无痕窗口验证新网址及 PDF 下载。
+- [x] 上传公开仓库并启用 GitHub Pages。
+- [x] 通过未携带登录凭据的请求验证公开网页及 PDF，并与本地文件逐字节核对。
 - [ ] 获得课程 rubric 后逐项对照。
