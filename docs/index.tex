@@ -1,0 +1,250 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  10pt,
+  UTF8,
+  fontset=fandol]{ctexart}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[a4paper,margin=22mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small Qiaoyi Xu | \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目录}
+\else
+  \newcommand\contentsname{目录}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{图索引}
+\else
+  \newcommand\listfigurename{图索引}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表索引}
+\else
+  \newcommand\listtablename{表索引}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{图}
+\else
+  \newcommand\figurename{图}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{列表}
+\newcommand*\listoflistings{\listof{codelisting}{列表索引}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{chinese-hans}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Qiaoyi Xu},
+  pdflang={zh-Hans},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Qiaoyi Xu}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Joyce · 公共卫生与数据分析}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\subsection{关于我}\label{about}
+
+我叫 \textbf{Qiaoyi
+Xu（Joyce）}，家乡是北京。原个人主页介绍了我在公共卫生、流行病学、应用生物统计及数据科学方面的学习，以及医疗健康相关实习经历。我的职业目标是将所学用于健康领域，帮助人们改善健康。
+
+本页根据原站公开资料整理。教育及实习信息为历史记录；原站所述``当前在读''状态与预计毕业时间不作为当前状态声明。
+
+\subsection{教育背景}\label{education}
+
+\textbf{哥伦比亚大学 · Mailman School of Public Health}\\
+2021 年 9 月入学；原站预计毕业时间为 2023 年 5
+月。原站记录为流行病学公共卫生硕士（MPH）学习经历，并提及应用生物统计及数据科学方向学习；实际毕业状态及证书正式名称待本人更新。
+
+\textbf{马萨诸塞大学阿默斯特分校}\\
+2018 年 9 月至 2021 年 5
+月，公共卫生科学与数学双专业理学学士（原简历记录）。
+
+\subsection{实习经历}\label{experience}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Pfizer · 流行病学研究助理}（2022 年 6--8
+  月，纽约）：支持莱姆病疫苗相关流行病学研究，开展加拿大蜱监测系统文献综述，使用
+  SAS 分析数据并汇报结果。
+\item
+  \textbf{Frost \& Sullivan · 咨询分析实习生}（2021 年 12 月至 2022 年 2
+  月，上海）：参与资料收集、市场分析展示及专家访谈纪要整理。
+\item
+  \textbf{National Center for Medical Service Administration ·
+  数据分析实习}（2020 年 7--9 月，北京）：收集 20
+  家医院或卫生中心的核酸检测数据，整理工作动态、分析数据并撰写日报。机构中文正式名称可由本人进一步核定。
+\item
+  \textbf{中国疾病预防控制中心 · 数据分析与健康传播实习}（2019 年 6--8
+  月，北京）：收集和分析环境健康相关数据，参与面向儿童及家长的环境健康科普活动。
+\end{itemize}
+
+\subsection{数据分析作品}\label{projects}
+
+\textbf{纽约州 NOAA 气象数据探索}\\
+原站课程作品使用 R、Plotly 和
+flexdashboard，展示散点图、柱状图与箱线图。它体现了从数据整理到交互式可视化的学习实践。
+
+\href{https://qiaoyixu.github.io/plotly.html}{查看原站交互图表} ·
+\href{https://qiaoyixu.github.io/dashboard.html}{查看原站仪表板} ·
+\href{https://p8105.com/dataset_noaa.html}{数据集说明}
+
+\subsection{技能与兴趣}\label{skills}
+
+\textbf{分析工具：} R、SAS、MySQL、Excel（来自原简历技能列表）。\\
+\textbf{语言：} 中文、英文。\\
+\textbf{个人兴趣：} 舞蹈、冲浪、百老汇音乐剧；我的猫叫 Erer。
+
+\subsection{联系与资料}\label{contact}
+
+\href{https://github.com/joycexu2000-web}{GitHub} ·
+\href{https://www.linkedin.com/in/qiaoyi-xu-99b8091b9/}{LinkedIn} ·
+\href{https://qiaoyixu.github.io/}{原个人主页}
+
+资料来源：\href{https://github.com/qiaoyixu/qiaoyixu.github.io/blob/main/index.Rmd}{原主页源码}与\href{https://github.com/qiaoyixu/qiaoyixu.github.io/blob/main/myresume.Rmd}{原简历源码}，整理日期：2026
+年 11 月 1
+日。原站邮箱与电话未纳入本课程版；可按本人需要补充有效联系方式。
+
+
+
+
+\end{document}
