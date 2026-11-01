@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+website:
+  title: "Qiaoyi Xu · Joyce"
+  navbar:
+    background: "#173d49"
+    left:
+      - text: 关于我
+        href: index.qmd#about
+      - text: 教育与经历
+        href: index.qmd#education
+      - text: 数据作品
+        href: index.qmd#projects
+    right:
+      - text: PDF
+        href: index.pdf
+      - text: GitHub
+        href: https://github.com/joycexu2000-web
+  page-footer: "Qiaoyi Xu · 公共卫生与数据分析"
+format:
+  html:
+    lang: zh
+    embed-resources: true
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: 本页导航
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+  pdf:
+    lang: zh
+    documentclass: ctexart
+    classoption: [UTF8, fontset=fandol]
+    pdf-engine: xelatex
+    latex-tinytex: false
+    keep-tex: true
+    toc: false
+    number-sections: false
+    fontsize: 10pt
+    geometry: [a4paper, margin=22mm]
+    colorlinks: true
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyfoot[C]{\small Qiaoyi Xu | \thepage}
+        \renewcommand{\headrulewidth}{0pt}
+execute:
+  echo: false
+  warning: false
+  message: false

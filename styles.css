@@ -1,0 +1,16 @@
+/* Local system fonts keep the page usable without a font CDN. */
+:root { --bs-primary: #176b73; --bs-link-color: #176b73; }
+body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#243e49; background:#fcfdfb; line-height:1.85; }
+#title-block-header { margin: 2.4rem 0 1.5rem; padding-bottom:1rem; border-bottom:1px solid #d6e3e1; }
+.title { font-weight:750; letter-spacing:-.035em; font-size:clamp(2.4rem,6vw,3.8rem); color:#173d49; }
+.subtitle { color:#5e777a; }
+h2 { font-size:1.45rem; font-weight:650; margin-top:2.2rem; color:#173d49; }
+.hero { min-height:190px; background:#edf5f1; padding:1.6rem; border-radius:12px; margin-bottom:2rem; display:flow-root; }
+.hero .quarto-figure { float:right; margin:0 0 1rem 1.4rem; }
+.hero figcaption { display:none; }
+.portrait { border-radius:10px; max-height:190px; object-fit:cover; }
+.btn { margin:.3rem .5rem .3rem 0; border-radius:6px; }
+.btn-primary { background:#176b73; border-color:#176b73; }
+li { margin-bottom:.8rem; }
+a:focus-visible { outline:3px solid #d68e36; outline-offset:3px; }
+@media(max-width:600px) { .hero .quarto-figure { float:none; margin:0 auto 1rem; } .hero {padding:1.2rem;} }
