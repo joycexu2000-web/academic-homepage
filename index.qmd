@@ -1,6 +1,6 @@
 ---
-title: "Qiaoyi Xu"
-subtitle: "Joyce · 公共卫生与数据分析"
+title: "徐乔依"
+subtitle: "Joyce"
 ---
 
 ::: {.content-visible when-format="html"}
@@ -44,7 +44,7 @@ subtitle: "Joyce · 公共卫生与数据分析"
 **纽约州 NOAA 气象数据探索**  
 该作品使用 R、Plotly 和 flexdashboard，展示散点图、柱状图与箱线图。它体现了从数据整理到交互式可视化的分析实践。
 
-[查看原站交互图表](https://qiaoyixu.github.io/plotly.html) · [查看原站仪表板](https://qiaoyixu.github.io/dashboard.html) · [数据集说明](https://p8105.com/dataset_noaa.html)
+[查看交互图表](plotly.html) · [查看仪表板](dashboard.html) · [数据集说明](https://p8105.com/dataset_noaa.html)
 
 ## 技能与兴趣 {#skills}
 

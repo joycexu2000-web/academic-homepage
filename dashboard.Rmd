@@ -1,0 +1,81 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed 
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+```
+
+```{r}
+data("ny_noaa")
+
+set.seed(10032)
+part_ny_noaa = ny_noaa %>%
+  separate(date, into = c("year","month","day"), sep = "-", remove = FALSE) %>%
+  mutate(year = as.numeric(year),
+         month = as.numeric(month),
+         day = as.numeric(day),
+         tmax = as.numeric(tmax)/10,
+         tmin = as.numeric(tmin)/10,
+         prcp = as.numeric(prcp)/10) %>%
+  drop_na(tmax, tmin, prcp) %>%
+  filter(year %in% 2005:2010) %>%
+  sample_n(10000) 
+
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A: Boxplot
+
+```{r}
+box_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  plot_ly(x = ~month, y = ~tmin, color = ~month, type = "box", colors = "viridis") %>%
+  layout(title = "Boxplot of Minimum Temperature Distribution in each month", 
+         legend = list(title = list(text = "<month>"))) #add title and lengend title in the graph
+
+box_plot
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B: Scatter plot
+
+```{r}
+scatter_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(mean_tmax = mean(tmax, na.rm = T)) %>% 
+  plot_ly(x = ~ month, y = ~mean_tmax, color = ~month, type = "scatter", mode = "line", colors = "viridis") %>%
+  layout(title = "Mean Maximum Temperature by month", 
+         yaxis = list(title = "mean of maximum temperature")) #add title in the graph
+
+scatter_plot
+```
+
+### Chart C: Bar plot
+
+```{r}
+bar_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(mean_prcp = mean(prcp, na.rm = T)) %>% 
+  plot_ly(x = ~ month, y = ~mean_prcp, color = ~month, type = "bar", colors = "viridis") %>%
+  layout(title = "Mean Precipitation (tenths of mm) by month", 
+         yaxis = list(title = "Mean of Precipitation")) #add title in the graph
+
+bar_plot
+
+```
+

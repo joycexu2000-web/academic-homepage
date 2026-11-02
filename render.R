@@ -9,7 +9,7 @@ if (!nzchar(quarto)) {
   if (length(found)) quarto <- found[[1]]
 }
 if (!nzchar(quarto)) stop("请安装 Quarto，或将 quarto 加入 PATH：https://quarto.org/docs/get-started/")
-status <- system2(quarto, c("render", "index.qmd", "--to", "all"))
+status <- system2(quarto, c("render", "index.qmd", "--to", "all", "--no-clean"))
 if (status != 0) stop("渲染失败，请检查 Quarto 和 XeLaTeX 的输出。")
 tex <- c("docs/index.tex", "index.tex")
 tex <- tex[file.exists(tex)]
@@ -50,3 +50,10 @@ for (i in seq_len(2)) {
   if (status != 0) stop("简历 PDF 编译失败，日志：", file.path(tempdir(), "resume-xelatex.log"))
 }
 cat("Resume: docs/myresume.html, docs/myresume.pdf, docs/myresume.tex\n")
+
+# Keep the migrated R visualization pages available on this site.
+for (page in c("plotly", "dashboard")) {
+  if (!file.copy(paste0(page, "-page.html"), file.path("docs", paste0(page, ".html")), overwrite = TRUE)) {
+    stop("可视化页面复制失败：", page)
+  }
+}

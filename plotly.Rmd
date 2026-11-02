@@ -1,0 +1,96 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    code_folding: hide 
+    toc: true
+    toc_float: true
+---
+
+# Plots of NY NOAA dataset
+
+## Load packages and ny_noaa data
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+## Choose subset of data
+
+```{r}
+data("ny_noaa")
+
+set.seed(10032)
+part_ny_noaa = ny_noaa %>%
+  separate(date, into = c("year","month","day"), sep = "-", remove = FALSE) %>%
+  mutate(year = as.numeric(year),
+         month = as.numeric(month),
+         day = as.numeric(day),
+         tmax = as.numeric(tmax)/10,
+         tmin = as.numeric(tmin)/10,
+         prcp = as.numeric(prcp)/10) %>%
+  drop_na(tmax, tmin, prcp) %>%
+  filter(year %in% 2005:2010) %>%
+  sample_n(10000) 
+
+part_ny_noaa
+
+```
+
+
+In 'ny_noaa' data, there are `r nrow(ny_noaa)` observations, which is a really huge data. So, we would like to choose part of observations that we are interested to form 'part_ny_noaa' data. In 'part_ny_noaa' data, we focus on data between 2005 and 2010, and cleared missing data of tmax, tmin, and prcp. However, there are also so many observations, so that we set a random seed to help us random smapled 10000 observations in our 'part_ny_noaa'.
+
+
+## Plotly box plot
+
+```{r}
+box_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  plot_ly(x = ~month, y = ~tmin, color = ~month, type = "box", colors = "viridis") %>%
+  layout(title = "Boxplot of Minimum Temperature Distribution in each month", 
+         legend = list(title = list(text = "<month>"))) #add title and lengend title in the graph
+
+box_plot
+
+```
+
+This boxplot shows Minimum Temperature Distribution in each month during 2005-2010. It shows the possible minimum temperature range in each month. We could conclude that, in New York, most cold season is from December to February.
+
+## Plotly Scatter plot
+
+```{r}
+scatter_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(mean_tmax = mean(tmax, na.rm = T)) %>% 
+  plot_ly(x = ~ month, y = ~mean_tmax, color = ~month, type = "scatter", mode = "line", colors = "viridis") %>%
+  layout(title = "Mean Maximum Temperature by month", 
+         yaxis = list(title = "mean of maximum temperature")) #add title in the graph
+
+scatter_plot
+
+```
+
+This line plot shows mean maximum temperature in each month during 2005-2010. This result is consistent with the result of minimum temperature.  We could conclude that, in New York, the hottest time of year is during June-August.
+
+## Plotly bar plot
+
+```{r}
+bar_plot = part_ny_noaa %>%
+  mutate(month = factor(month.name[month], levels = month.name)) %>%
+  group_by(month) %>%
+  summarise(mean_prcp = mean(prcp, na.rm = T)) %>% 
+  plot_ly(x = ~ month, y = ~mean_prcp, color = ~month, type = "bar", colors = "viridis") %>%
+  layout(title = "Mean Precipitation (tenths of mm) in each month", 
+         yaxis = list(title = "Mean of Precipitation")) #add title in the graph
+
+bar_plot
+
+```
+
+This figure shows mean precipitation (tenths of mm) in each month during 2005-2010. We could find compared with January to May, there are more precipitation after June averagely. There are most precipitation in June, July, and October.
+
+## Dashboard
+Created a flexdashboard to show the plots, please visit [Dashboard](dashboard.html)

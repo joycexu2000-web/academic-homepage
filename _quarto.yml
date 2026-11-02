@@ -14,6 +14,10 @@ website:
         href: index.qmd#education
       - text: 数据作品
         href: index.qmd#projects
+      - text: Plotly
+        href: plotly.html
+      - text: Dashboard
+        href: dashboard.html
     right:
       - text: Resume
         href: myresume.html
